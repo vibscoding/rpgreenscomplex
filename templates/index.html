@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RP Greens Complex — Prime Commercial Space in Raebareli</title>
+  <meta name="description" content="Premium commercial spaces infront of District Hospital Emergency Ward, Raebareli. Ideal for Finance Office, Retail, Pharmacy, Pathology, OPD, Eye Hospital, IVF. Call 9411802000."/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --blue:#1a56db;
+      --blue2:#1e40af;
+      --blue3:#3b82f6;
+      --blue-light:#dbeafe;
+      --blue-pale:#eff6ff;
+      --charcoal:#1e293b;
+      --charcoal2:#334155;
+      --charcoal3:#475569;
+      --white:#ffffff;
+      --off-white:#f8fafc;
+      --border:#e2e8f0;
+      --gray:#64748b;
+      --gold:#f59e0b;
+      --gold2:#fbbf24;
+      --phone-font:'Plus Jakarta Sans',sans-serif;
+      --phone-weight:700;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:var(--charcoal);overflow-x:hidden;}
+    img{max-width:100%;display:block;}
+    a{text-decoration:none;}
+
+    /* ── PHONE UNIFIED ── */
+    a[href^="tel"], .stat-num.phone {
+      font-family:'Plus Jakarta Sans',sans-serif !important;
+      font-weight:700 !important;
+      letter-spacing:0.01em;
+    }
+
+    /* ─── TOP BAR ─── */
+    .topbar{background:var(--charcoal);padding:0.45rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}
+    .topbar-left{font-size:0.73rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:0.5rem;}
+    .topbar-right{display:flex;gap:1.5rem;align-items:center;}
+    .topbar-right a{font-size:0.73rem;color:rgba(255,255,255,0.85);display:flex;align-items:center;gap:0.4rem;font-weight:500;transition:color 0.2s;}
+    .topbar-right a:hover{color:var(--blue3);}
+
+    /* ─── NAV ─── */
+    nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 1px 0 var(--border);display:flex;align-items:center;justify-content:space-between;padding:0.85rem 3rem;}
+    .nav-brand{display:flex;align-items:center;gap:0.75rem;}
+    .nav-logo{width:44px;height:44px;background:linear-gradient(135deg,var(--blue2),var(--blue));border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:#fff;flex-shrink:0;}
+    .nav-text{line-height:1.15;}
+    .nav-text strong{display:block;font-size:0.95rem;font-weight:700;color:var(--charcoal);}
+    .nav-text span{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);}
+    .nav-links{display:flex;align-items:center;gap:0.2rem;}
+    .nav-links a{padding:0.5rem 0.85rem;font-size:0.83rem;font-weight:500;color:var(--charcoal3);border-radius:6px;transition:color 0.2s,background 0.2s;}
+    .nav-links a:hover{color:var(--blue);background:var(--blue-pale);}
+    .nav-cta{background:var(--blue)!important;color:#fff!important;padding:0.55rem 1.3rem!important;border-radius:6px!important;font-weight:600!important;}
+    .nav-cta:hover{background:var(--blue2)!important;color:#fff!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+    .hamburger span{width:22px;height:2px;background:var(--charcoal);display:block;transition:0.3s;}
+
+    /* ─── HERO ─── */
+    .hero{position:relative;overflow:hidden;background:var(--charcoal);min-height:92vh;display:flex;align-items:center;}
+    .hero-bg{position:absolute;inset:0;background:url('/static/building.jpg') center/cover no-repeat;opacity:0.14;}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,41,59,0.97) 0%,rgba(30,40,80,0.92) 55%,rgba(26,86,219,0.42) 100%);}
+    .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:4rem 3rem 5rem;width:100%;}
+    .hero-pill{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(59,130,246,0.18);border:1px solid rgba(59,130,246,0.4);color:#93c5fd;padding:0.35rem 1rem;border-radius:100px;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin-bottom:1.8rem;animation:fadeUp 0.6s ease both;}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.5vw,4rem);font-weight:900;line-height:1.08;color:#fff;margin-bottom:1rem;animation:fadeUp 0.6s 0.08s ease both;}
+    .hero h1 em{color:var(--gold2);font-style:normal;}
+    .hero-desc{font-size:1rem;color:rgba(255,255,255,0.62);line-height:1.8;margin-bottom:1.5rem;animation:fadeUp 0.6s 0.14s ease both;}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:2.2rem;animation:fadeUp 0.6s 0.18s ease both;}
+    .hero-chip{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);color:rgba(255,255,255,0.78);padding:0.3rem 0.75rem;border-radius:5px;font-size:0.73rem;font-weight:500;}
+    .hero-btns{display:flex;flex-wrap:wrap;gap:0.9rem;animation:fadeUp 0.6s 0.22s ease both;}
+    .btn-blue{background:var(--blue);color:#fff;padding:0.85rem 2rem;border-radius:8px;font-size:0.88rem;font-weight:600;transition:background 0.2s,transform 0.2s;display:inline-flex;align-items:center;gap:0.5rem;}
+    .btn-blue:hover{background:var(--blue2);transform:translateY(-2px);}
+    .btn-wa{background:#25D366;color:#fff;padding:0.85rem 2rem;border-radius:8px;font-size:0.88rem;font-weight:600;transition:opacity 0.2s,transform 0.2s;display:inline-flex;align-items:center;gap:0.5rem;}
+    .btn-wa:hover{opacity:0.9;transform:translateY(-2px);}
+    .btn-ghost{border:2px solid rgba(255,255,255,0.25);color:#fff;padding:0.85rem 2rem;border-radius:8px;font-size:0.88rem;font-weight:500;transition:border-color 0.2s,background 0.2s;display:inline-flex;align-items:center;gap:0.5rem;}
+    .btn-ghost:hover{border-color:var(--blue3);background:rgba(59,130,246,0.12);}
+    .hero-right{position:relative;animation:fadeUp 0.7s 0.15s ease both;}
+    .hero-img-main{border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.5);aspect-ratio:4/3;}
+    .hero-img-main img{width:100%;height:100%;object-fit:cover;}
+    .hero-img-badge{position:absolute;bottom:-1.5rem;left:-1.5rem;background:#fff;border-radius:12px;padding:1rem 1.3rem;box-shadow:0 8px 30px rgba(0,0,0,0.15);display:flex;align-items:center;gap:0.7rem;min-width:170px;}
+    .hib-icon{font-size:1.8rem;}
+    .hib-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--charcoal);line-height:1;}
+    .hib-txt{font-size:0.72rem;color:var(--gray);margin-top:0.1rem;}
+    .hero-img-badge2{position:absolute;top:-1rem;right:-1rem;background:var(--blue);border-radius:12px;padding:0.8rem 1.1rem;box-shadow:0 8px 24px rgba(26,86,219,0.45);color:#fff;text-align:center;}
+    .hib2-num{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;line-height:1;}
+    .hib2-txt{font-size:0.65rem;opacity:0.8;margin-top:0.1rem;}
+
+    /* ─── STATS ─── */
+    .stats{background:var(--blue2);display:grid;grid-template-columns:repeat(5,1fr);}
+    .stat{padding:1.6rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,0.12);}
+    .stat:last-child{border-right:none;}
+    .stat-icon{font-size:1.4rem;margin-bottom:0.4rem;}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#fff;line-height:1;}
+    .stat-num.phone{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:700;}
+    .stat-lbl{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:0.2rem;}
+
+    /* ─── IDEAL ─── */
+    .ideal{padding:5rem 3rem;background:var(--blue-pale);}
+    .eyebrow{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:0.6rem;display:flex;align-items:center;gap:0.6rem;}
+    .eyebrow::before{content:'';width:24px;height:2px;background:var(--blue);display:block;}
+    .sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;color:var(--charcoal);line-height:1.2;margin-bottom:0.7rem;}
+    .sec-desc{font-size:0.93rem;color:var(--gray);line-height:1.8;max-width:540px;}
+    .ideal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:2.5rem;}
+    .ideal-card{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:1.5rem 1rem;text-align:center;transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s;}
+    .ideal-card:hover{border-color:var(--blue);box-shadow:0 8px 24px rgba(26,86,219,0.1);transform:translateY(-4px);}
+    .ideal-icon{font-size:2rem;margin-bottom:0.7rem;}
+    .ideal-name{font-size:0.82rem;font-weight:600;color:var(--charcoal);}
+
+    /* ─── SPACES ─── */
+    .spaces{padding:5rem 3rem;background:#fff;}
+    .spaces-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.3rem;margin-top:3rem;}
+    .sp-card{border-radius:14px;overflow:hidden;border:1.5px solid var(--border);background:#fff;transition:transform 0.3s,box-shadow 0.3s;}
+    .sp-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(0,0,0,0.1);}
+    .sp-head{padding:2rem 1.8rem 1.5rem;}
+    .sp-head.navy{background:linear-gradient(135deg,var(--charcoal),var(--charcoal2));}
+    .sp-head.blue{background:linear-gradient(135deg,var(--blue2),var(--blue));}
+    .sp-head.slate{background:linear-gradient(135deg,#1e293b,#334155);}
+    .sp-tag{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold2);margin-bottom:0.4rem;font-weight:600;}
+    .sp-size{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:900;color:#fff;line-height:1;}
+    .sp-size small{font-size:0.85rem;font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;color:rgba(255,255,255,0.5);}
+    .sp-body{padding:1.4rem 1.8rem 1.8rem;}
+    .sp-feat{font-size:0.82rem;color:var(--gray);padding:0.35rem 0;display:flex;align-items:center;gap:0.5rem;border-bottom:1px solid #f1f5f9;}
+    .sp-feat:last-of-type{border-bottom:none;}
+    .sp-feat::before{content:'✓';color:var(--blue);font-weight:700;font-size:0.9rem;}
+    .sp-badge{display:inline-block;background:var(--blue-pale);color:var(--blue2);padding:0.28rem 0.8rem;border-radius:5px;font-size:0.7rem;font-weight:600;margin:0.8rem 0;}
+    .sp-btn{display:block;background:var(--charcoal);color:#fff;text-align:center;padding:0.75rem;border-radius:8px;font-size:0.82rem;font-weight:600;margin-top:0.8rem;transition:background 0.2s;}
+    .sp-btn:hover{background:var(--blue);}
+
+    /* ─── TENANTS ─── */
+    .tenants{padding:5rem 3rem;background:var(--charcoal);}
+    .tenants .eyebrow{color:var(--gold2);}
+    .tenants .eyebrow::before{background:var(--gold2);}
+    .tenants .sec-title{color:#fff;}
+    .tenants .sec-desc{color:rgba(255,255,255,0.5);}
+    .tenant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin-top:3rem;}
+    .tenant-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.4rem;display:flex;align-items:center;gap:1rem;transition:background 0.2s,border-color 0.2s,transform 0.2s;}
+    .tenant-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(59,130,246,0.4);transform:translateY(-3px);}
+    .tc-logo{width:52px;height:52px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:10px;overflow:hidden;background:#fff;padding:4px;}
+    .tc-logo img{width:100%;height:100%;object-fit:contain;}
+    .tc-icon{width:52px;height:52px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:10px;background:rgba(255,255,255,0.1);font-size:1.9rem;}
+    .tc-name{font-size:0.92rem;font-weight:600;color:#fff;margin-bottom:0.15rem;}
+    .tc-sub{font-size:0.7rem;color:rgba(255,255,255,0.4);}
+    .tc-badge{display:inline-block;margin-top:0.4rem;background:rgba(59,130,246,0.2);color:#93c5fd;padding:0.15rem 0.55rem;border-radius:4px;font-size:0.65rem;font-weight:600;}
+
+    /* ─── WHY ─── */
+    .why{padding:5rem 3rem;background:var(--blue-pale);}
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.3rem;margin-top:3rem;}
+    .why-card{background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.8rem;transition:border-color 0.2s,transform 0.3s,box-shadow 0.3s;}
+    .why-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,86,219,0.1);}
+    .why-icon-wrap{width:50px;height:50px;border-radius:12px;background:var(--blue-pale);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1rem;}
+    .why-title{font-size:1rem;font-weight:700;color:var(--charcoal);margin-bottom:0.4rem;}
+    .why-desc{font-size:0.83rem;color:var(--gray);line-height:1.7;}
+
+    /* ─── GALLERY ─── */
+    .gallery{padding:5rem 3rem;}
+    .gallery-mosaic{display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:220px 220px;gap:0.8rem;margin-top:3rem;}
+    .gm-1{grid-column:1/6;grid-row:1/3;}
+    .gm-2{grid-column:6/10;grid-row:1/2;}
+    .gm-3{grid-column:10/13;grid-row:1/2;}
+    .gm-4{grid-column:6/9;grid-row:2/3;}
+    .gm-5{grid-column:9/13;grid-row:2/3;}
+    .gm-item{border-radius:12px;overflow:hidden;background:var(--blue-pale);}
+    .gm-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
+    .gm-item:hover img{transform:scale(1.04);}
+    .gm-label{position:relative;}
+    .gm-label::after{content:attr(data-label);position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.65) 0%,transparent 100%);color:#fff;font-size:0.75rem;font-weight:500;padding:1.5rem 1rem 0.6rem;}
+
+    /* ─── CONTACT ─── */
+    .contact{padding:5rem 3rem;background:linear-gradient(135deg,var(--charcoal) 0%,var(--charcoal2) 100%);}
+    .contact .eyebrow{color:var(--gold2);}
+    .contact .eyebrow::before{background:var(--gold2);}
+    .contact .sec-title{color:#fff;}
+    .contact .sec-desc{color:rgba(255,255,255,0.55);}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;margin-top:3rem;align-items:start;}
+    .cinfo-item{display:flex;gap:1rem;margin-bottom:1.6rem;align-items:flex-start;}
+    .cinfo-icon{width:44px;height:44px;background:rgba(59,130,246,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+    .cinfo-lbl{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:0.2rem;}
+    .cinfo-val{font-size:0.93rem;color:#fff;font-weight:500;line-height:1.5;}
+    .cinfo-val a{color:#fff;}
+    .cinfo-val a:hover{color:var(--gold2);}
+    .cta-btns{display:flex;flex-wrap:wrap;gap:0.8rem;margin-top:2rem;}
+    .cform{background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.12);border-radius:18px;padding:2.5rem;}
+    .cform h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:0.3rem;}
+    .cform p{font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:1.8rem;}
+    .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+    .fg{margin-bottom:1rem;}
+    .fg label{display:block;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.35rem;}
+    .fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);color:#fff;padding:0.75rem 0.9rem;border-radius:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.87rem;outline:none;transition:border-color 0.2s;}
+    .fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.25);}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue3);}
+    .fg select option{background:#1e293b;color:#fff;}
+    .fg textarea{min-height:90px;resize:vertical;}
+    .fsubmit{width:100%;background:var(--blue);color:#fff;border:none;padding:0.95rem;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;font-weight:700;border-radius:8px;cursor:pointer;letter-spacing:0.03em;transition:background 0.2s,transform 0.2s;}
+    .fsubmit:hover{background:var(--blue2);transform:translateY(-2px);}
+
+    .toast{display:none;position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;padding:1rem 2rem;border-radius:10px;font-weight:600;font-size:0.9rem;z-index:9999;box-shadow:0 10px 30px rgba(0,0,0,0.2);}
+    .toast.show{display:block;animation:toastIn 0.4s ease;}
+    @keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(20px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}
+
+    .map-section iframe{width:100%;height:400px;border:none;display:block;}
+
+    .guesthouse{padding:5rem 3rem;background:var(--off-white);}
+    .gh-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+    .gh-img{border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.12);}
+    .gh-img img{width:100%;height:320px;object-fit:cover;}
+    .gh-content .eyebrow{color:var(--blue);}
+    .gh-content .eyebrow::before{background:var(--blue);}
+    .gh-content p{font-size:0.93rem;color:var(--gray);line-height:1.8;margin-bottom:1.5rem;}
+    .btn-amber{background:var(--gold);color:var(--charcoal);padding:0.85rem 2rem;border-radius:8px;font-size:0.88rem;font-weight:700;display:inline-flex;align-items:center;gap:0.5rem;transition:background 0.2s,transform 0.2s;}
+    .btn-amber:hover{background:var(--gold2);transform:translateY(-2px);}
+
+    footer{background:#0f172a;padding:3rem;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2rem;}
+    .footer-brand .fb-logo{display:flex;align-items:center;gap:0.7rem;margin-bottom:0.8rem;}
+    .fb-icon{width:38px;height:38px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:900;color:#fff;}
+    .fb-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;}
+    .fb-name span{color:var(--blue3);}
+    .footer-brand p{font-size:0.8rem;color:rgba(255,255,255,0.35);line-height:1.7;max-width:260px;}
+    .footer-col h4{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:1rem;}
+    .footer-col a{display:block;font-size:0.82rem;color:rgba(255,255,255,0.55);margin-bottom:0.5rem;transition:color 0.2s;}
+    .footer-col a:hover{color:var(--blue3);}
+    .footer-bottom{background:#080f1c;padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;}
+    .footer-bottom p{font-size:0.72rem;color:rgba(255,255,255,0.25);}
+    .footer-bottom a{font-size:0.72rem;color:rgba(255,255,255,0.3);}
+    .footer-bottom a:hover{color:var(--blue3);}
+
+    .wa-float{position:fixed;bottom:1.8rem;right:1.8rem;z-index:998;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 6px 20px rgba(37,211,102,0.5);animation:waPulse 2.5s infinite;}
+    @keyframes waPulse{0%,100%{box-shadow:0 6px 20px rgba(37,211,102,0.5);}50%{box-shadow:0 6px 32px rgba(37,211,102,0.7),0 0 0 10px rgba(37,211,102,0.12);}}
+    .wa-float:hover{transform:scale(1.1);}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .reveal.visible{opacity:1;transform:none;}
+    .reveal-d1{transition-delay:0.05s;}
+    .reveal-d2{transition-delay:0.12s;}
+    .reveal-d3{transition-delay:0.19s;}
+
+    @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;}.hero-right{display:none;}}
+    @media(max-width:900px){
+      nav{padding:0.8rem 1.5rem;}
+      .nav-links{display:none;}
+      .nav-links.open{display:flex;flex-direction:column;position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;padding:5rem 2rem 2rem;gap:0.5rem;z-index:99;}
+      .hamburger{display:flex;z-index:100;}
+      .topbar{padding:0.5rem 1.5rem;}
+      .hero-inner{padding:3rem 1.5rem 4rem;}
+      section,.ideal,.spaces,.why,.gallery,.contact,.guesthouse{padding:4rem 1.5rem;}
+      .tenants{padding:4rem 1.5rem;}
+      .stats{grid-template-columns:1fr 1fr;}
+      .stat:nth-child(2n){border-right:none;}
+      .stat:nth-child(3),.stat:nth-child(4){border-top:1px solid rgba(255,255,255,0.12);}
+      .contact-grid{grid-template-columns:1fr;}
+      .gh-inner{grid-template-columns:1fr;}
+      .gallery-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+      .gm-1,.gm-2,.gm-3,.gm-4,.gm-5{grid-column:auto;grid-row:auto;}
+      .gm-1{grid-column:1/3;}
+      footer{grid-template-columns:1fr;}
+      .footer-bottom{flex-direction:column;text-align:center;padding:1rem 1.5rem;}
+      .frow{grid-template-columns:1fr;}
+    }
+    @media(max-width:500px){.hero h1{font-size:2.2rem;}.stats{grid-template-columns:1fr 1fr;}}
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">📍 Infront of District Hospital (Emergency Ward), Raebareli — 229001, UP</div>
+  <div class="topbar-right">
+    <a href="tel:+919411802000">📞 94118 02000</a>
+    <a href="https://wa.me/919411802000" target="_blank">💬 WhatsApp</a>
+    <a href="mailto:srivastava.vibhuti@gmail.com">✉️ Email Us</a>
+  </div>
+</div>
+
+<nav id="navbar">
+  <a href="/" class="nav-brand">
+    <div class="nav-logo">RP</div>
+    <div class="nav-text">
+      <strong>RP Greens Complex</strong>
+      <span>Commercial Spaces · Raebareli</span>
+    </div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#ideal">Ideal For</a>
+    <a href="#spaces">Spaces</a>
+    <a href="#tenants">Tenants</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#guesthouse">Guest House</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Inquire Now</a>
+  </div>
+  <div class="hamburger" id="ham" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-pill">🔵 5 Spaces Currently Available</div>
+      <h1>Prime Commercial<br>Space in <em>Raebareli</em></h1>
+      <p class="hero-desc">Strategically located <strong style="color:#93c5fd">infront of District Hospital Emergency Ward</strong> — Raebareli's highest-footfall commercial address. Ideal for finance offices, healthcare, retail & more.</p>
+      <div class="hero-chips">
+        <span class="hero-chip">🏥 Hospital Frontage</span>
+        <span class="hero-chip">🏦 9+ Year Tenants</span>
+        <span class="hero-chip">🔒 24/7 CCTV</span>
+        <span class="hero-chip">🚗 Ample Parking</span>
+        <span class="hero-chip">⚡ Uninterrupted Power</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#spaces" class="btn-blue">🏬 View Spaces</a>
+        <a href="https://wa.me/919411802000?text=Hi%2C%20I%20am%20interested%20in%20renting%20space%20at%20RP%20Greens%20Complex%2C%20Raebareli.%20Please%20share%20details." target="_blank" class="btn-wa">💬 WhatsApp Now</a>
+        <a href="#contact" class="btn-ghost">📞 Call Back</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-main">
+        <img src="/static/building.jpg" alt="RP Greens Complex Front View"/>
+      </div>
+      <div class="hero-img-badge">
+        <span class="hib-icon">🏢</span>
+        <div><div class="hib-num">9+</div><div class="hib-txt">Years of Trust</div></div>
+      </div>
+      <div class="hero-img-badge2">
+        <div class="hib2-num">5</div>
+        <div class="hib2-txt">Spaces<br>Available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-icon">📍</div><div class="stat-num">District</div><div class="stat-lbl">Hospital Frontage</div></div>
+  <div class="stat"><div class="stat-icon">🏢</div><div class="stat-num">11</div><div class="stat-lbl">Premium Tenants</div></div>
+  <div class="stat"><div class="stat-icon">📅</div><div class="stat-num">9+</div><div class="stat-lbl">Years Established</div></div>
+  <div class="stat"><div class="stat-icon">📞</div><div class="stat-num phone">94118 02000</div><div class="stat-lbl">Call / WhatsApp</div></div>
+  <div class="stat"><div class="stat-icon">🟢</div><div class="stat-num">5</div><div class="stat-lbl">Units Available</div></div>
+</div>
+
+<section class="ideal" id="ideal">
+  <div class="eyebrow reveal">Perfect Business Location</div>
+  <div class="sec-title reveal">Ideal For Every Healthcare &amp; Finance Business</div>
+  <p class="sec-desc reveal">With thousands of daily visitors to the adjacent District Hospital, RP Greens Complex offers unmatched captive footfall for health, finance and retail businesses.</p>
+  <div class="ideal-grid">
+    <div class="ideal-card reveal reveal-d1"><div class="ideal-icon">🏥</div><div class="ideal-name">OPD Clinic</div></div>
+    <div class="ideal-card reveal reveal-d1"><div class="ideal-icon">💊</div><div class="ideal-name">Pharmacy</div></div>
+    <div class="ideal-card reveal reveal-d2"><div class="ideal-icon">🔬</div><div class="ideal-name">Pathology Lab</div></div>
+    <div class="ideal-card reveal reveal-d2"><div class="ideal-icon">👁️</div><div class="ideal-name">Eye Hospital</div></div>
+    <div class="ideal-card reveal reveal-d3"><div class="ideal-icon">🏦</div><div class="ideal-name">Finance Office</div></div>
+    <div class="ideal-card reveal reveal-d3"><div class="ideal-icon">🛡️</div><div class="ideal-name">Insurance Branch</div></div>
+    <div class="ideal-card reveal reveal-d1"><div class="ideal-icon">🏪</div><div class="ideal-name">Retail Outlet</div></div>
+    <div class="ideal-card reveal reveal-d2"><div class="ideal-icon">👶</div><div class="ideal-name">IVF / Fertility</div></div>
+    <div class="ideal-card reveal reveal-d3"><div class="ideal-icon">🦷</div><div class="ideal-name">Dental Clinic</div></div>
+    <div class="ideal-card reveal reveal-d1"><div class="ideal-icon">🩺</div><div class="ideal-name">Diagnostic Centre</div></div>
+    <div class="ideal-card reveal reveal-d2"><div class="ideal-icon">💉</div><div class="ideal-name">Vaccination Centre</div></div>
+    <div class="ideal-card reveal reveal-d3"><div class="ideal-icon">📋</div><div class="ideal-name">Medical Office</div></div>
+  </div>
+</section>
+
+<section class="spaces" id="spaces">
+  <div class="eyebrow reveal">Currently Available</div>
+  <div class="sec-title reveal">Choose Your Space</div>
+  <p class="sec-desc reveal">All units are in a prime commercial complex with round-the-clock footfall, directly opposite Raebareli District Hospital Emergency Ward.</p>
+  <div class="spaces-grid">
+    <div class="sp-card reveal">
+      <div class="sp-head navy"><div class="sp-tag">Onroad Shop</div><div class="sp-size">320 <small>Sq. Ft.</small></div></div>
+      <div class="sp-body">
+        <div class="sp-feat">Prime road-facing frontage</div>
+        <div class="sp-feat">Maximum walk-in footfall</div>
+        <div class="sp-feat">Immediate possession</div>
+        <div class="sp-feat">Individual metered power</div>
+        <span class="sp-badge">Ground Floor · Road Facing</span>
+        <a href="#contact" class="sp-btn">Inquire Now →</a>
+      </div>
+    </div>
+    <div class="sp-card reveal reveal-d1">
+      <div class="sp-head navy"><div class="sp-tag">Onroad Shop</div><div class="sp-size">240 <small>Sq. Ft.</small></div></div>
+      <div class="sp-body">
+        <div class="sp-feat">Prime road-facing frontage</div>
+        <div class="sp-feat">Ideal for retail / clinic</div>
+        <div class="sp-feat">Ready to move in</div>
+        <div class="sp-feat">Signage space available</div>
+        <span class="sp-badge">Ground Floor · Road Facing</span>
+        <a href="#contact" class="sp-btn">Inquire Now →</a>
+      </div>
+    </div>
+    <div class="sp-card reveal reveal-d2">
+      <div class="sp-head navy"><div class="sp-tag">Onroad Shop</div><div class="sp-size">160 <small>Sq. Ft.</small></div></div>
+      <div class="sp-body">
+        <div class="sp-feat">Prime road-facing frontage</div>
+        <div class="sp-feat">Compact &amp; affordable</div>
+        <div class="sp-feat">Ready to move in</div>
+        <div class="sp-feat">Ideal for pharmacy / counter</div>
+        <span class="sp-badge">Ground Floor · Road Facing</span>
+        <a href="#contact" class="sp-btn">Inquire Now →</a>
+      </div>
+    </div>
+    <div class="sp-card reveal">
+      <div class="sp-head blue"><div class="sp-tag">First Floor Space</div><div class="sp-size">1500 <small>Sq. Ft.</small></div></div>
+      <div class="sp-body">
+        <div class="sp-feat">Partition possible</div>
+        <div class="sp-feat">Ideal for office / clinic</div>
+        <div class="sp-feat">Lift access</div>
+        <div class="sp-feat">Excellent ventilation &amp; light</div>
+        <span class="sp-badge">First Floor · Customizable Layout</span>
+        <a href="#contact" class="sp-btn">Inquire Now →</a>
+      </div>
+    </div>
+    <div class="sp-card reveal reveal-d1">
+      <div class="sp-head slate"><div class="sp-tag">Lower Ground Floor</div><div class="sp-size">2000 <small>Sq. Ft.</small></div></div>
+      <div class="sp-body">
+        <div class="sp-feat">Partition possible</div>
+        <div class="sp-feat">Ideal for gym / bank / diagnostic</div>
+        <div class="sp-feat">High ceiling, ample space</div>
+        <div class="sp-feat">Strong structure for equipment</div>
+        <span class="sp-badge">LGF · Partition Possible</span>
+        <a href="#contact" class="sp-btn">Inquire Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tenants" id="tenants">
+  <div class="eyebrow reveal">Our Tenants</div>
+  <div class="sec-title reveal">Trusted by Industry Leaders</div>
+  <p class="sec-desc reveal">Reputed banks, ATMs, insurers, pharmacies and healthcare providers have operated from RP Greens Complex for 9+ years, proving our location's unmatched commercial value.</p>
+  <div class="tenant-grid">
+
+    <div class="tenant-card reveal">
+      <div class="tc-logo"><img src="https://logo.clearbit.com/indusind.com" alt="IndusInd Bank" onerror="this.closest('.tc-logo').outerHTML='<div class=tc-icon>🏦</div>'"/></div>
+      <div><div class="tc-name">IndusInd Bank</div><div class="tc-sub">Full Service Branch</div><span class="tc-badge">9+ Years</span></div>
+    </div>
+
+    <div class="tenant-card reveal reveal-d1">
+      <div class="tc-logo"><img src="https://logo.clearbit.com/indusind.com" alt="IndusInd Finance" onerror="this.closest('.tc-logo').outerHTML='<div class=tc-icon>💳</div>'"/></div>
+      <div><div class="tc-name">IndusInd Finance</div><div class="tc-sub">Consumer Finance</div><span class="tc-badge">9+ Years</span></div>
+    </div>
+
+    <!-- NEW: IndusInd ATM -->
+    <div class="tenant-card reveal reveal-d2">
+      <div class="tc-logo"><img src="https://logo.clearbit.com/indusind.com" alt="IndusInd ATM" onerror="this.closest('.tc-logo').outerHTML='<div class=tc-icon>🏧</div>'"/></div>
+      <div><div class="tc-name">IndusInd Bank ATM</div><div class="tc-sub">24/7 ATM Service</div><span class="tc-badge">Operational</span></div>
+    </div>
+
+    <!-- NEW: BOB ATM -->
+    <div class="tenant-card reveal">
+      <div class="tc-logo"><img src="https://logo.clearbit.com/bankofbaroda.in" alt="Bank of Baroda" onerror="this.closest('.tc-logo').outerHTML='<div class=tc-icon>🏧</div>'"/></div>
+      <div><div class="tc-name">BOB ATM</div><div class="tc-sub">Bank of Baroda ATM</div><span class="tc-badge">Operational</span></div>
+    </div>
+
+    <div class="tenant-card reveal reveal-d1">
+      <div class="tc-logo"><img src="https://logo.clearbit.com/iciciprulife.com" alt="ICICI Prudential" onerror="this.closest('.tc-logo').outerHTML='<div class=tc-icon>🛡️</div>'"/></div>
+      <div><div class="tc-name">ICICI Prudential</div><div class="tc-sub">Life Insurance</div><span class="tc-badge">Established</span></div>
+    </div>
+
+    <div class="tenant-card reveal reveal-d2">
+      <div class="tc-logo"><img src="https://logo.clearbit.com/bajajallianz.com" alt="Bajaj Allianz" onerror="this.closest('.tc-logo').outerHTML='<div class=tc-icon>🔵</div>'"/></div>
+      <div><div class="tc-name">Bajaj Allianz</div><div class="tc-sub">General Insurance</div><span class="tc-badge">Established</span></div>
+    </div>
+
+    <div class="tenant-card reveal">
+      <div class="tc-logo"><img src="https://logo.clearbit.com/tataaig.com" alt="Tata AIG" onerror="this.closest('.tc-logo').outerHTML='<div class=tc-icon>🧡</div>'"/></div>
+      <div><div class="tc-name">Tata AIG</div><div class="tc-sub">Insurance</div><span class="tc-badge">Established</span></div>
+    </div>
+
+    <div class="tenant-card reveal reveal-d1">
+      <div class="tc-icon">💊</div>
+      <div><div class="tc-name">Dawa India Health Mart</div><div class="tc-sub">Generic Pharmacy</div><span class="tc-badge">Operational</span></div>
+    </div>
+
+    <div class="tenant-card reveal reveal-d2">
+      <div class="tc-icon">🏥</div>
+      <div><div class="tc-name">Durgesh Medical</div><div class="tc-sub">Pharmacy &amp; Surgical</div><span class="tc-badge">24 Hours Open</span></div>
+    </div>
+
+    <div class="tenant-card reveal">
+      <div class="tc-icon">👨‍⚕️</div>
+      <div><div class="tc-name">Panacea OPD Clinic</div><div class="tc-sub">Dr. Gyanendra Singh, MD</div><span class="tc-badge">Active</span></div>
+    </div>
+
+    <!-- NEW: RML Mehrotra Pathology -->
+    <div class="tenant-card reveal reveal-d1">
+      <div class="tc-icon">🔬</div>
+      <div><div class="tc-name">RML Mehrotra Pathology</div><div class="tc-sub">Diagnostic &amp; Lab Services</div><span class="tc-badge">Active</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="eyebrow reveal">Why RP Greens</div>
+  <div class="sec-title reveal">The Raebareli Location Advantage</div>
+  <p class="sec-desc reveal">Every business needs footfall, credibility and convenience. RP Greens Complex delivers all three — consistently, for over 9 years.</p>
+  <div class="why-grid">
+    <div class="why-card reveal"><div class="why-icon-wrap">🏥</div><div class="why-title">Guaranteed Medical Footfall</div><div class="why-desc">Thousands of patients, attendants and staff visit the adjacent District Hospital daily — giving your business a built-in customer base from day one.</div></div>
+    <div class="why-card reveal reveal-d1"><div class="why-icon-wrap">🚦</div><div class="why-title">Maximum Road Visibility</div><div class="why-desc">Road-facing onroad shops on the main road ensure your signage and storefront are seen by every vehicle and pedestrian passing through Raebareli.</div></div>
+    <div class="why-card reveal reveal-d2"><div class="why-icon-wrap">🏦</div><div class="why-title">Premium Brand Neighbours</div><div class="why-desc">Sharing the complex with IndusInd Bank, ICICI Prudential, Bajaj Allianz and Tata AIG instantly elevates your brand's credibility and trust factor.</div></div>
+    <div class="why-card reveal"><div class="why-icon-wrap">🔒</div><div class="why-title">Safe &amp; Well Managed</div><div class="why-desc">24/7 CCTV, professional property management, clean common areas, reliable maintenance and uninterrupted power supply keep operations smooth.</div></div>
+    <div class="why-card reveal reveal-d1"><div class="why-icon-wrap">🧩</div><div class="why-title">Flexible Space Options</div><div class="why-desc">From compact 160 sq ft shops to customizable 2000 sq ft LGF — with partition options — we have the exact size your business needs.</div></div>
+    <div class="why-card reveal reveal-d2"><div class="why-icon-wrap">📈</div><div class="why-title">Best Investment Value</div><div class="why-desc">Raebareli's most stable commercial corridor. Long-term tenants, growing rental income and strong capital appreciation make this an outstanding investment.</div></div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="eyebrow reveal">Photo Gallery</div>
+  <div class="sec-title reveal">See RP Greens Complex</div>
+  <div class="gallery-mosaic">
+    <div class="gm-item gm-1 gm-label reveal" data-label="RP Greens Complex — Daytime">
+      <img src="/static/building.jpg" alt="RP Greens Complex Front View"/>
+    </div>
+    <div class="gm-item gm-2 gm-label reveal" data-label="Night View — Active 24 Hours">
+      <img src="/static/night.jpg" alt="Complex Night View"/>
+    </div>
+    <div class="gm-item gm-3 gm-label reveal" data-label="Street View — Road Frontage">
+      <img src="/static/street.jpg" alt="Street View"/>
+    </div>
+    <div class="gm-item gm-4 gm-label reveal" data-label="District Hospital — Right Opposite">
+      <img src="/static/hospital.jpg" alt="District Hospital Opposite"/>
+    </div>
+    <div class="gm-item gm-5 gm-label reveal" data-label="Hospital Complex Area">
+      <img src="/static/hospital2.jpg" alt="Hospital Area"/>
+    </div>
+  </div>
+</section>
+
+<section class="guesthouse" id="guesthouse">
+  <div class="gh-inner">
+    <div class="gh-img reveal">
+      <img src="/static/building.jpg" alt="RP Greens Guest House"/>
+    </div>
+    <div class="gh-content reveal">
+      <div class="eyebrow">Bonus Facility</div>
+      <div class="sec-title">RP Greens Guest House</div>
+      <p>Need accommodation while scouting your new business space? Or looking for a comfortable stay in Raebareli? Our premium guest house facility is conveniently located and available on Airbnb.</p>
+      <p>Clean, comfortable and well-managed — perfect for business visitors, doctors, and travelling professionals.</p>
+      <a href="https://www.airbnb.co.in/rooms/1275912503149676346" target="_blank" class="btn-amber">🏠 View on Airbnb ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="eyebrow reveal">Get In Touch</div>
+  <div class="sec-title reveal">Book a Site Visit Today</div>
+  <p class="sec-desc reveal">Our team responds within 2 hours. Fill the form or reach us directly on WhatsApp.</p>
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="cinfo-item">
+        <div class="cinfo-icon">📍</div>
+        <div><div class="cinfo-lbl">Address</div><div class="cinfo-val">Infront of District Hospital (Emergency Ward),<br>Raebareli — 229001, Uttar Pradesh, India</div></div>
+      </div>
+      <div class="cinfo-item">
+        <div class="cinfo-icon">📞</div>
+        <div><div class="cinfo-lbl">Call / WhatsApp</div><div class="cinfo-val"><a href="tel:+919411802000">+91 94118 02000</a></div></div>
+      </div>
+      <div class="cinfo-item">
+        <div class="cinfo-icon">✉️</div>
+        <div><div class="cinfo-lbl">Email</div><div class="cinfo-val"><a href="mailto:srivastava.vibhuti@gmail.com">srivastava.vibhuti@gmail.com</a></div></div>
+      </div>
+      <div class="cinfo-item">
+        <div class="cinfo-icon">👤</div>
+        <div><div class="cinfo-lbl">Property Owners</div><div class="cinfo-val">Mr. Vinay Kumar &amp; Mr. Vibhuti Srivastava</div></div>
+      </div>
+      <div class="cinfo-item">
+        <div class="cinfo-icon">🗺️</div>
+        <div><div class="cinfo-lbl">Google Maps</div><div class="cinfo-val"><a href="https://share.google/EiMq70rFqBeWpM9rz" target="_blank" style="color:var(--gold2)">Get Directions ↗</a></div></div>
+      </div>
+      <div class="cinfo-item">
+        <div class="cinfo-icon">🏠</div>
+        <div><div class="cinfo-lbl">Guest House (Airbnb)</div><div class="cinfo-val"><a href="https://www.airbnb.co.in/rooms/1275912503149676346" target="_blank" style="color:var(--gold2)">View Listing ↗</a></div></div>
+      </div>
+      <div class="cta-btns">
+        <a href="https://wa.me/919411802000?text=Hi%2C%20I%20am%20interested%20in%20renting%20space%20at%20RP%20Greens%20Complex%2C%20Raebareli.%20Please%20share%20details." target="_blank" class="btn-wa">💬 Chat on WhatsApp</a>
+        <a href="tel:+919411802000" class="btn-ghost">📞 Call Now</a>
+      </div>
+    </div>
+    <div class="cform reveal">
+      <h3>Send an Inquiry</h3>
+      <p>We'll get back to you within 2 hours.</p>
+      <form action="/submit" method="POST">
+        <div class="frow">
+          <div class="fg"><label>Full Name *</label><input type="text" name="name" placeholder="Your full name" required/></div>
+          <div class="fg"><label>Phone Number *</label><input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required/></div>
+        </div>
+        <div class="fg"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com"/></div>
+        <div class="fg">
+          <label>Space of Interest *</label>
+          <select name="space" required>
+            <option value="" disabled selected>Select a space</option>
+            <option>Onroad Shop — 320 Sq. Ft.</option>
+            <option>Onroad Shop — 240 Sq. Ft.</option>
+            <option>Onroad Shop — 160 Sq. Ft.</option>
+            <option>First Floor Space — 1500 Sq. Ft.</option>
+            <option>LGF Space — 2000 Sq. Ft.</option>
+            <option>Any / Not Decided Yet</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Type of Business</label>
+          <select name="business">
+            <option value="" disabled selected>Select business type</option>
+            <option>Pharmacy / Medical Store</option>
+            <option>OPD / Clinic</option>
+            <option>Pathology / Diagnostic</option>
+            <option>Eye Hospital</option>
+            <option>IVF / Fertility Clinic</option>
+            <option>Bank / Finance Office</option>
+            <option>Insurance Branch</option>
+            <option>Retail Outlet</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label>Message</label><textarea name="message" placeholder="Tell us about your requirements, timeline, budget…"></textarea></div>
+        <button type="submit" class="fsubmit">Send Inquiry →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="map-section">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.0!2d81.232!3d26.231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a07e80757f253%3A0x52c89e2c2af0d7d6!2sDistrict%20Hospital%20Raebareli!5e0!3m2!1sen!2sin!4v1700000000000" allowfullscreen loading="lazy" title="RP Greens Complex Location"></iframe>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <div class="fb-logo">
+      <div class="fb-icon">RP</div>
+      <div class="fb-name">RP <span>Greens</span> Complex</div>
+    </div>
+    <p>Prime commercial spaces infront of District Hospital, Raebareli. Trusted by leading banks, insurers and healthcare providers for 9+ years.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <a href="#ideal">Ideal For</a>
+    <a href="#spaces">Available Spaces</a>
+    <a href="#tenants">Our Tenants</a>
+    <a href="#gallery">Photo Gallery</a>
+    <a href="#guesthouse">Guest House</a>
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <a href="tel:+919411802000">📞 94118 02000</a>
+    <a href="https://wa.me/919411802000" target="_blank">💬 WhatsApp</a>
+    <a href="mailto:srivastava.vibhuti@gmail.com">✉️ Email Us</a>
+    <a href="https://share.google/EiMq70rFqBeWpM9rz" target="_blank">🗺️ Google Maps</a>
+    <a href="/admin" style="margin-top:0.5rem;opacity:0.4;font-size:0.75rem;">Admin Login</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 RP Greens Complex, Raebareli. Owned by Mr. Vinay Kumar &amp; Mr. Vibhuti Srivastava.</p>
+  <a href="/admin">Admin Panel</a>
+</div>
+
+<a href="https://wa.me/919411802000?text=Hi%2C%20I%20am%20interested%20in%20renting%20space%20at%20RP%20Greens%20Complex%2C%20Raebareli." target="_blank" class="wa-float" title="Chat on WhatsApp">💬</a>
+<div class="toast" id="toast">✅ Inquiry sent! We'll contact you within 2 hours.</div>
+
+<script>
+  function toggleMenu(){document.getElementById('navLinks').classList.toggle('open');}
+  document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.09});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  if(window.location.search.includes('submitted=1')){
+    const t=document.getElementById('toast');t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),4500);
+    history.replaceState({},'','/');
+  }
+</script>
+</body>
+</html>

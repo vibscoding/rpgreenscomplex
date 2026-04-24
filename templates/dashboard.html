@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard — RP Greens Complex</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{--green:#166534;--green2:#16a34a;--navy:#07152b;--gold:#f59e0b;--light:#f0fdf4;--gray:#6b7280;--border:#e5e7eb;}
+    body{font-family:'Plus Jakarta Sans',sans-serif;background:#f8fafc;color:var(--navy);display:flex;min-height:100vh;}
+
+    /* SIDEBAR */
+    .sidebar{width:240px;background:var(--navy);display:flex;flex-direction:column;padding:1.8rem 1.2rem;flex-shrink:0;position:fixed;top:0;left:0;bottom:0;}
+    .sb-logo{display:flex;align-items:center;gap:0.7rem;margin-bottom:2.5rem;}
+    .sb-icon{width:38px;height:38px;background:var(--green2);border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;color:#fff;}
+    .sb-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;color:#fff;line-height:1.1;}
+    .sb-name small{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.6rem;font-weight:400;color:rgba(255,255,255,0.35);letter-spacing:0.1em;text-transform:uppercase;}
+    .sb-nav{flex:1;display:flex;flex-direction:column;gap:0.2rem;}
+    .sb-link{display:flex;align-items:center;gap:0.7rem;padding:0.65rem 0.9rem;border-radius:8px;color:rgba(255,255,255,0.55);font-size:0.82rem;font-weight:500;text-decoration:none;transition:background 0.2s,color 0.2s;}
+    .sb-link:hover,.sb-link.active{background:rgba(255,255,255,0.08);color:#fff;}
+    .sb-icon-s{font-size:1rem;width:20px;text-align:center;}
+    .sb-logout{display:flex;align-items:center;gap:0.6rem;color:rgba(255,255,255,0.3);font-size:0.78rem;text-decoration:none;padding:0.5rem 0.9rem;border-radius:8px;transition:color 0.2s,background 0.2s;margin-top:auto;}
+    .sb-logout:hover{color:#fff;background:rgba(255,0,0,0.1);}
+
+    /* MAIN */
+    .main{margin-left:240px;flex:1;padding:2rem 2.5rem;}
+    .page-header{margin-bottom:2rem;}
+    .page-header h1{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--navy);}
+    .page-header p{font-size:0.83rem;color:var(--gray);margin-top:0.2rem;}
+
+    /* STAT CARDS */
+    .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-bottom:2rem;}
+    .stat-card{background:#fff;border-radius:14px;padding:1.5rem;border:1.5px solid var(--border);position:relative;overflow:hidden;}
+    .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green2);}
+    .stat-card.gold::before{background:var(--gold);}
+    .stat-card.blue::before{background:#3b82f6;}
+    .stat-card.gray::before{background:#94a3b8;}
+    .sc-label{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);margin-bottom:0.5rem;}
+    .sc-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--navy);line-height:1;}
+    .sc-icon{position:absolute;top:1.2rem;right:1.2rem;font-size:1.5rem;opacity:0.2;}
+
+    /* FILTER */
+    .filter-bar{display:flex;gap:0.5rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+    .fb-btn{padding:0.45rem 1.1rem;border:1.5px solid var(--border);background:#fff;color:var(--gray);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.75rem;font-weight:500;border-radius:6px;text-decoration:none;transition:all 0.2s;letter-spacing:0.05em;}
+    .fb-btn:hover{border-color:var(--green2);color:var(--green);}
+    .fb-btn.active{background:var(--green);color:#fff;border-color:var(--green);}
+
+    /* TABLE */
+    .table-wrap{background:#fff;border-radius:14px;border:1.5px solid var(--border);overflow:hidden;overflow-x:auto;}
+    table{width:100%;border-collapse:collapse;}
+    thead th{background:var(--navy);color:#fff;padding:0.85rem 1rem;text-align:left;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;white-space:nowrap;}
+    tbody tr{border-bottom:1px solid #f1f5f9;transition:background 0.15s;}
+    tbody tr:last-child{border-bottom:none;}
+    tbody tr:hover{background:#f8fafc;}
+    tbody td{padding:0.85rem 1rem;font-size:0.84rem;color:#374151;vertical-align:middle;}
+    .td-name{font-weight:600;color:var(--navy);}
+
+    /* BADGES */
+    .badge{display:inline-block;padding:0.22rem 0.65rem;border-radius:20px;font-size:0.67rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;}
+    .badge-new{background:#dbeafe;color:#1d4ed8;}
+    .badge-contacted{background:#fef3c7;color:#d97706;}
+    .badge-closed{background:#dcfce7;color:#15803d;}
+
+    /* ACTION BUTTONS */
+    .acts{display:flex;gap:0.35rem;flex-wrap:nowrap;}
+    .act{padding:0.28rem 0.6rem;border-radius:5px;font-size:0.67rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:opacity 0.2s;}
+    .act:hover{opacity:0.75;}
+    .act-c{background:#fef3c7;color:#92400e;}
+    .act-cl{background:#dcfce7;color:#065f46;}
+    .act-d{background:#fee2e2;color:#991b1b;}
+
+    .empty-row td{text-align:center;padding:3rem;color:var(--gray);font-size:0.9rem;}
+
+    @media(max-width:900px){
+      .sidebar{display:none;}
+      .main{margin-left:0;}
+      .stat-row{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sb-logo">
+    <div class="sb-icon">RP</div>
+    <div class="sb-name">RP Greens<small>Admin Panel</small></div>
+  </div>
+  <nav class="sb-nav">
+    <a href="/dashboard" class="sb-link active"><span class="sb-icon-s">📊</span> Dashboard</a>
+    <a href="/" class="sb-link" target="_blank"><span class="sb-icon-s">🌐</span> View Website</a>
+  </nav>
+  <a href="/logout" class="sb-logout">⎋ Sign Out</a>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="page-header">
+    <h1>Inquiries Dashboard</h1>
+    <p>Manage all commercial space inquiries for RP Greens Complex</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stat-row">
+    <div class="stat-card">
+      <div class="sc-icon">📋</div>
+      <div class="sc-label">Total Inquiries</div>
+      <div class="sc-num">{{ total }}</div>
+    </div>
+    <div class="stat-card gold">
+      <div class="sc-icon">🔔</div>
+      <div class="sc-label">New</div>
+      <div class="sc-num">{{ new_count }}</div>
+    </div>
+    <div class="stat-card blue">
+      <div class="sc-icon">📞</div>
+      <div class="sc-label">Contacted</div>
+      <div class="sc-num">{{ contacted }}</div>
+    </div>
+    <div class="stat-card gray">
+      <div class="sc-icon">✅</div>
+      <div class="sc-label">Closed</div>
+      <div class="sc-num">{{ closed }}</div>
+    </div>
+  </div>
+
+  <!-- FILTER -->
+  <div class="filter-bar">
+    <a href="/dashboard" class="fb-btn {% if status_filter=='All' %}active{% endif %}">All ({{ total }})</a>
+    <a href="/dashboard?status=New" class="fb-btn {% if status_filter=='New' %}active{% endif %}">New ({{ new_count }})</a>
+    <a href="/dashboard?status=Contacted" class="fb-btn {% if status_filter=='Contacted' %}active{% endif %}">Contacted ({{ contacted }})</a>
+    <a href="/dashboard?status=Closed" class="fb-btn {% if status_filter=='Closed' %}active{% endif %}">Closed ({{ closed }})</a>
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Space</th>
+          <th>Business</th>
+          <th>Message</th>
+          <th>Status</th>
+          <th>Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data %}
+        <tr>
+          <td>{{ row.id }}</td>
+          <td class="td-name">{{ row.name }}</td>
+          <td><a href="tel:{{ row.phone }}" style="color:inherit;">{{ row.phone }}</a></td>
+          <td style="font-size:0.78rem;color:#6b7280;">{{ row.email or '—' }}</td>
+          <td style="font-size:0.8rem;">{{ row.space }}</td>
+          <td style="font-size:0.8rem;color:#6b7280;">{{ row.business or '—' }}</td>
+          <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:0.8rem;color:#6b7280;" title="{{ row.message }}">{{ row.message or '—' }}</td>
+          <td>
+            {% if row.status == 'New' %}<span class="badge badge-new">New</span>
+            {% elif row.status == 'Contacted' %}<span class="badge badge-contacted">Contacted</span>
+            {% else %}<span class="badge badge-closed">{{ row.status }}</span>{% endif %}
+          </td>
+          <td style="font-size:0.78rem;color:#6b7280;white-space:nowrap;">{{ row.date.strftime('%d %b %Y') }}<br>{{ row.date.strftime('%H:%M') }}</td>
+          <td>
+            <div class="acts">
+              <a href="/update/{{ row.id }}/Contacted" class="act act-c">Contacted</a>
+              <a href="/update/{{ row.id }}/Closed" class="act act-cl">Close</a>
+              <a href="/delete/{{ row.id }}" class="act act-d" onclick="return confirm('Delete inquiry from {{ row.name }}?')">Del</a>
+            </div>
+          </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="10" class="empty-row"><td>No inquiries found{% if status_filter != 'All' %} with status "{{ status_filter }}"{% endif %}.</td></td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</main>
+
+</body>
+</html>
