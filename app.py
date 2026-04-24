@@ -6,9 +6,8 @@ import smtplib, os
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "rpgreens_secret_2026_secure")
 
-# ── DATABASE: use /tmp for Railway (ephemeral), or local for dev ──
+# ── DATABASE ──
 db_path = os.environ.get("DATABASE_URL", "sqlite:///database.db")
-# Railway sometimes gives postgres:// — convert to sqlite for simplicity
 if db_path.startswith("postgres://"):
     db_path = db_path.replace("postgres://", "postgresql://", 1)
 
@@ -32,10 +31,34 @@ class Inquiry(db.Model):
 @app.route("/")
 def home():
     return render_template("index.html")
-    @app.route('/robots.txt')
+
+# ── SEO: robots.txt ──
+@app.route('/robots.txt')
 def robots():
-    content = "User-agent: *\nAllow: /\n\nUser-agent: facebookexternalhit\nAllow: /\n\nUser-agent: Googlebot\nAllow: /"
+    content = (
+        "User-agent: *\n"
+        "Allow: /\n\n"
+        "User-agent: facebookexternalhit\n"
+        "Allow: /\n\n"
+        "User-agent: Googlebot\n"
+        "Allow: /\n"
+    )
     return content, 200, {'Content-Type': 'text/plain'}
+
+# ── SEO: sitemap.xml ──
+@app.route('/sitemap.xml')
+def sitemap():
+    base_url = os.environ.get("SITE_URL", "https://rpgreens.in")
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{base_url}/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>"""
+    return xml, 200, {'Content-Type': 'application/xml'}
+
 # ── SUBMIT ──
 @app.route("/submit", methods=["POST"])
 def submit():
@@ -49,7 +72,7 @@ def submit():
     )
     db.session.add(inquiry)
     db.session.commit()
-    # Email notification — set GMAIL_USER and GMAIL_PASS in Railway env vars
+    # Email notification — set GMAIL_USER and GMAIL_PASS in Render env vars
     try:
         gmail_user = os.environ.get("GMAIL_USER", "")
         gmail_pass = os.environ.get("GMAIL_PASS", "")
