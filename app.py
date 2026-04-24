@@ -32,6 +32,20 @@ class Inquiry(db.Model):
 @app.route("/")
 def home():
     return render_template("index.html")
+    @app.route('/robots.txt')
+def robots():
+    content = """User-agent: *
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /"""
+    return content, 200, {'Content-Type': 'text/plain'}
 
 # ── SUBMIT ──
 @app.route("/submit", methods=["POST"])
